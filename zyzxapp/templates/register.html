@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>日报--注册</title>
+        <link rel="stylesheet" href="{% static 'css/semantic.css'%}" media="screen" title="no title" charset="utf-8">
+    </head>
+    <body>
+        <div class="ui basic segment">
+            <div class="ui container ">
+                <a class="ui blue header">请录入您的注册信息</a>
+                <form class="ui blue form segment" method="post">
+                    {% csrf_token %}
+                    {{ userform.as_p }}
+                    <div>
+                        <button class="ui blue circular button" type="submit">提交</button>
+                    </div>
+                    {% if is_err %}
+                    <div class="ui error red message">{{err_message}}</div>
+                    {% endif %}
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
