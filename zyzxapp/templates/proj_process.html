@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block content%}
+
+
+<div class="ui vertical container">
+    {% for proj in proj_list%}
+    <div class="ui blue segment">
+        <div class="ui padded grid">
+            <div class="two wide column">
+                <div class="ui card">
+                    <div class="image">
+                        <img src="{% static 'images/logo.png' %}" alt="" />
+                    </div>
+                    <div class="content">
+                        <a class="header">{{proj.userid}}</a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="twelve wide column">
+                <div class="ui grid">
+                    <div class="four column row">
+                        <div class="two wide column"><a class="header">项目编号：</a></div>
+                        <div class="two wide column"><a class="header">{{proj.projid}}</a></div>
+                        <div class="two wide column"><p class="content">项目名称：</p></div>
+                        <div class="eight wide column"><p class="content">{{proj.projname}}</p></div>
+                    </div>
+                    <div class="four column row">
+                        <div class="two wide column"><p class="header">项目状态：</p></div>
+                        <div class="two wide column"><p class="header">{{proj.projstatus}}</p></div>
+                        <div class="two wide column"><p class="content">项目成员：</p></div>
+                        <div class="eight wide column"><p class="content">{{proj.projmember}}</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
