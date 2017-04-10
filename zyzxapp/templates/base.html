@@ -1,0 +1,70 @@
+<!DOCTYPE html> {% load staticfiles %}
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>日报</title>
+    <link rel="stylesheet" href="{% static 'css/semantic.css'%}" media="screen" title="no title" charset="utf-8">
+</head>
+
+<body>
+
+    <div class="ui inverted blue top attached tabular menu">
+        <div class="ui container">
+            <div class="item">
+                <i class="cubes icon"></i>
+            </div>
+            <a href="{% url 'index' %}" class="item">主页</a>
+            <a href="#" class="item">室组团队</a>
+            <a href="{% url 'projprogress' %}" class="item">项目进度</a>
+            <a href="{% url 'weeklypaper' %}" class="item">工作周报</a>
+            <div class="right item">
+                <a>{{username}}</a>
+                <a href="{% url 'login' %}">登录</a>
+                <span>&nbsp;|&nbsp;</span>
+                <a href="{% url 'register' %}">注册</a>
+            </div>
+
+
+
+            <!--
+                <div class="right menu">
+                    {% if request.userinfo.is_authenticated %}
+                    <div class="item">
+                        <h5 class="ui inverted header">
+                            <div class="ui mini circular image">
+                                <i class="red user icon"></i>
+                            </div>
+                            <span style="margin-right:20px;">{{ request.userinfo.username }}</span>
+                        </h5>
+                    </div>
+                    <div class="item">
+                        <a href="{% url 'logout' %}" class="ui inverted circular button">Logout</a>
+                    </div>
+                    {% else %}
+                    <div class="item">
+                        <h5 class="ui inverted header">
+                            <div class="ui mini circular image">
+                                <i class="gray user icon"></i>
+                            </div>
+                            <span style="margin-right:20px;">请登录</span>
+                        </h5>
+                    </div>
+                    <div class="item">
+                        <a href="#" class="ui inverted circular button">Signup/Login</a>
+                    </div>
+                    {% endif %}
+                </div>
+                -->
+        </div>
+
+    </div>
+
+    <div class="ui basic segment">
+        <div id="content">
+            {% block content %} {% endblock %}
+        </div>
+    </div>
+</body>
+
+</html>
