@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load staticfiles%}
+{% block content %}
+
+<div class="ui container ">
+    <a class="ui blue header">请录入您的注册信息</a>
+    <form class="ui blue form segment" method="post">
+        <div class="field">
+            <label>登录用户名</label>
+            <input placeholder="登录用户名" name="userid" type="text" style="width:400px">
+        </div>
+        <div class="field">
+            <label>姓名</label>
+            <input placeholder="姓名" name="username" type="text" style="width:400px">
+        </div>
+
+        <div class="field">
+            <label>密码</label>
+            <input name="password1" type="password" style="width:400px">
+        </div>
+        <div class="field">
+            <label>重复密码</label>
+            <input name="password2" type="password" style="width:400px">
+        </div>
+
+        <div class="field">
+            <label>E-mail</label>
+            <input placeholder="joe@cmbchina.com" name='email' type="email" style="width:400px">
+        </div>
+        <div class="field">
+            <label>联系方式</label>
+            <input name='phone' type="text" style="width:400px">
+        </div>
+
+        <div class="inline field">
+            <div class="ui checkbox">
+                <input name="terms" type="checkbox">
+                <label>I agree to the terms and conditions</label>
+            </div>
+        </div>
+        <div class="ui primary submit button" type='submit'>注册</div>
+        {% if is_err %}
+            <div class="ui error red message">{{err_message}}</div>
+        {% endif %}
+    </form>
+</div>
+{% endblock content %}
