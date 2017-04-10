@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load staticfiles%}
+{% block content %}
+
+
+<div class="ui container ">
+    {% for weekly_paper in weekly_paper_list %}
+    <div class="ui blue padded segment">
+        <a class="ui red ribbon label">NEW</a>
+        <span class="ui header">
+                <a>
+                    {{weekly_paper.userid}}
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    更新时间：{{weekly_paper.update_time}}
+                </a>
+        </span>
+        <div class="ui divider"></div>
+        {{weekly_paper.work_desc}}
+    </div>
+    {% endfor %}
+</div>
+{% endblock content %}
